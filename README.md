@@ -11,7 +11,7 @@ Anyway, obj-ml is inspired by the native DOM "datalist" element.
 Syntax:
 
 ```html
-<obj-ml str-prop1='string property' bool-prop2=true int-prop3=5 float-prop4=2.7 date-prop5="May 24, 2021" obj-prop6='{"mySubSubObj":"hello"}'></obj-ml>
+<obj-ml str-prop1='string property' bool-prop2=true int-prop3=5 flt-prop4=2.7 date-prop5="May 24, 2021" obj-prop6='{"mySubSubObj":"hello"}'></obj-ml>
 ```
 
 Results in creating a JavaScript object:
