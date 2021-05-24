@@ -39,8 +39,6 @@ Property "value" of the obj-ml is set to this object.
 </obj-ml>
 ```
 
-The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage is probably more memory is used.
-
 results in outer obj-ml having value:
 
 ```JSON
@@ -74,3 +72,5 @@ If two or more children have the same name:
     ]
 }
 ```
+
+The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage is probably more memory is used.
