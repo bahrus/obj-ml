@@ -6,7 +6,7 @@ Given the fact that (to quote a colleague) "everything that will ever be discove
 
 I don't even want to look, it's too depressing.
 
-It is inspired by the native DOM "datalist" element.
+Anyway, obj-ml is inspired by the native DOM "datalist" element.
 
 Syntax:
 
