@@ -25,7 +25,7 @@ Results in creating a JavaScript object:
 
 [TODO]  Is there such a thing as a POWO (plain old wasm object)?
 
-... and setting property "value" to that JavaScript object.  Event "value-changed" is fired as the Object changes.  The value is passed in the detail, as well as some indication of what part of the object changed.
+... and setting property "value" to that JavaScript object.  Event "value-changed" is fired as the value changes.  The value is passed in the detail, as well as some indication of what part of the object changed.
 
 Property names are derived by "camelCasing" the name after the type prefix.  obj- prefix means use JSON.parse on the attribute (and arrays are objects).
 
