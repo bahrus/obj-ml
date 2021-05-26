@@ -47,6 +47,7 @@ obj-ml watches for all attribute changes, and if one changes, it updates the "va
 ```html
 <obj-ml>
     <obj-ml name='subObj' prop1-str='string property'></obj-ml>
+    <input name='myEditableProp'>
 </obj-ml>
 ```
 

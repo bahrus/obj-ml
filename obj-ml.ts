@@ -10,6 +10,9 @@ export class ObjML extends HTMLElement {
         for(const attrib of this.attributes){
             assignAttr(obj, attrib);
         }
+        for(const child of this.children){
+            if(child)
+        }
         this.value = obj;
     }
 
