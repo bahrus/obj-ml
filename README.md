@@ -1,4 +1,4 @@
-# obj-ml [TODO]
+# obj-ml
 
 ## Priors
 
@@ -30,7 +30,7 @@ Results in creating a JavaScript object:
 
 Property names are derived by "camelCasing" the name after the type prefix.  obj- prefix means use JSON.parse on the attribute (and arrays are objects).
 
-## Nested obj-ml's.
+## Nested obj-ml's [TODO]
 
 ```html
 <obj-ml>
