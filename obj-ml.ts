@@ -3,6 +3,7 @@ export class ObjML extends HTMLElement {
     connectedCallback(){
         this.style.display = 'none';
         this.doFullMerge();
+        this.addMutationObserver();
     }
     async doFullMerge(){
         const obj = {};
@@ -22,8 +23,39 @@ export class ObjML extends HTMLElement {
         this.dispatchEvent(new CustomEvent('value-changed', {
             detail:{
                 value: nv,
+                propLastChanged: this._propLastChanged
             }
         }))
+    }
+
+    onMutation(mutationsList: MutationRecord[], observer: MutationObserver){
+        for(const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                //console.log('A child node has been added or removed.');
+                //TODO
+            }
+            else if (mutation.type === 'attributes') {
+                const name = mutation.attributeName!;
+                const obj = this.value || {};
+                assignAttr(obj, this.getAttributeNode(name)!); //TODO:  remove attribute?
+                this._propLastChanged = name;
+                this.value = obj;                
+            }
+        }
+    }
+    _observer: MutationObserver | undefined;
+    _propLastChanged: string | undefined;
+    addMutationObserver(){
+        const config = { attributes: true, childList: true, subtree: false };
+        const callBack = this.onMutation.bind(this);
+        this._observer = new MutationObserver(callBack);
+        this._observer.observe(this, config);
+    }
+
+    disconnectedCallback(){
+        if(this._observer !== undefined){
+            this._observer.disconnect();
+        }
     }
 }
 
@@ -56,7 +88,9 @@ function assignAttr(obj: any, attrib: Attr){
         case 'float':
             obj[propName] = parseFloat(val);
             break;
-
+        default:
+            propName = lispToCamel(name);
+            obj[propName] = val;
     }
     
 }
