@@ -1,6 +1,7 @@
 import { lispToCamel } from 'trans-render/lib/lispToCamel.js';
 export class ObjML extends HTMLElement {
     connectedCallback() {
+        this.style.display = 'none';
         this.doFullMerge();
     }
     async doFullMerge() {
