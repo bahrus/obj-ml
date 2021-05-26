@@ -1,17 +1,20 @@
 import {lispToCamel} from 'trans-render/lib/lispToCamel.js';
 export class ObjML extends HTMLElement {
     connectedCallback(){
-        this.style.display = 'none';
         this.doFullMerge();
         this.addMutationObserver();
+        this.addEventListeners();
     }
     async doFullMerge(){
-        const obj = {};
+        const obj: any = {};
         for(const attrib of this.attributes){
             assignAttr(obj, attrib);
         }
         for(const child of this.children){
-            if(child)
+            const oChild = child as ObjML;
+            const name = oChild.getAttribute("name");
+            if(name === null) continue;
+            obj[name] = oChild.value;
         }
         this.value = obj;
     }
@@ -21,10 +24,12 @@ export class ObjML extends HTMLElement {
         return this._value;
     }
 
+
     set value(nv: any){
         this._value = nv;
         this.dispatchEvent(new CustomEvent('value-changed', {
             detail:{
+                bubbles: true,
                 value: nv,
                 propLastChanged: this._propLastChanged
             }
@@ -34,8 +39,17 @@ export class ObjML extends HTMLElement {
     onMutation(mutationsList: MutationRecord[], observer: MutationObserver){
         for(const mutation of mutationsList) {
             if (mutation.type === 'childList') {
-                //console.log('A child node has been added or removed.');
-                //TODO
+                const addedNodes = mutation.addedNodes;
+                for(const oChild of addedNodes){
+                    if(!(oChild instanceof ObjML) && !(oChild instanceof HTMLInputElement)) continue;
+                    const name = oChild.getAttribute("name");
+                    if(name === null) continue;
+                    const obj = this.value || {};
+                    obj[name] = oChild.value;
+                    this._propLastChanged = name;
+                    this.value = obj;
+                }
+                
             }
             else if (mutation.type === 'attributes') {
                 const name = mutation.attributeName!;
@@ -53,6 +67,20 @@ export class ObjML extends HTMLElement {
         const callBack = this.onMutation.bind(this);
         this._observer = new MutationObserver(callBack);
         this._observer.observe(this, config);
+    }
+
+    handleEvent = (e: Event) => {
+        const target = e.target as ObjML | HTMLInputElement;
+        if(target=== null) return; 
+        const name = target.getAttribute('name');
+        if(name === null || target.parentElement !== this) return;
+        e.stopPropagation();
+        this._propLastChanged = name;
+        this.value[name] = target.value;
+    }
+    addEventListeners(){
+        this.addEventListener('input', this.handleEvent);
+        this.addEventListener('value-changed', this.handleEvent);
     }
 
     disconnectedCallback(){

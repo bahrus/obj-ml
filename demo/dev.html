@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <obj-ml prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'></obj-ml>
+    <obj-ml prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
+        <obj-ml name='subObj' prop1-str='string property'></obj-ml>
+        <input name='myEditableProp'>
+    </obj-ml>
     <script type=importmap>
         {
             "imports": {

@@ -42,7 +42,7 @@ If you need a property to end with one of the reserved types, use it twice:
 
 obj-ml watches for all attribute changes, and if one changes, it updates the "value", and an event is emitted, containing the name of the property that changed (e.detail.propLastChanged).
 
-## Nested obj-ml's [TODO]
+## Nested obj-ml's
 
 ```html
 <obj-ml>
