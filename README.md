@@ -61,7 +61,7 @@ results in outer obj-ml having value:
 }
 ```
 
-If two or more children have the same name:
+If two or more children have the same name [TODO]:
 
 ```html
 <obj-ml>
