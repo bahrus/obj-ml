@@ -11,7 +11,7 @@ Anyway, obj-ml is inspired by the native DOM "datalist" element.
 Syntax:
 
 ```html
-<obj-ml str-prop1='string property' bool-prop2=true int-prop3=5 float-prop4=2.7 date-prop5="May 24, 2021" obj-prop6='{"mySubSubObj":"hello"}'></obj-ml>
+<obj-ml prop1-str='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-str="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'></obj-ml>
 ```
 
 Results in creating a JavaScript object:
@@ -34,7 +34,7 @@ Property names are derived by "camelCasing" the name after the type prefix.  obj
 
 ```html
 <obj-ml>
-    <obj-ml name='subObj' str-prop1='string property'></obj-ml>
+    <obj-ml name='subObj' prop1-str='string property'></obj-ml>
 </obj-ml>
 ```
 
@@ -52,8 +52,8 @@ If two or more children have the same name:
 
 ```html
 <obj-ml>
-    <obj-ml name='subObj' str-prop1='string property'></obj-ml>
-    <obj-ml name='subObj' num-prop2=42></obj-ml>
+    <obj-ml name='subObj' prop1-str='string property'></obj-ml>
+    <obj-ml name='subObj' prop2-num=42></obj-ml>
 </obj-ml>
 ```
 
