@@ -23,13 +23,12 @@ Results in creating a JavaScript object:
 }
 ```
 
+
+... and setting property "value" to that JavaScript object.  Event "value-changed" is fired as the value changes.  The value is passed in the detail, as well as some indication of what part of the object changed, when applicable.
+
 [TODO]  Is there such a thing as a POWO (plain old wasm object)?
 
-... and setting property "value" to that JavaScript object.  Event "value-changed" is fired as the value changes.  The value is passed in the detail, as well as some indication of what part of the object changed.
-
 Property names are derived by "camelCasing" the name after the type prefix.  obj- prefix means use JSON.parse on the attribute (and arrays are objects).
-
-Property "value" of the obj-ml is set to this object.
 
 ## Nested obj-ml's.
 
@@ -73,4 +72,4 @@ If two or more children have the same name:
 }
 ```
 
-The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage is probably more memory is used.
+The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more heavy handed mutation observing).

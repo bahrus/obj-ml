@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/bahrus/obj-ml.git"
   },
+  "dependencies": {
+    "xtal-element": "0.0.400"
+  },
+  "devDependencies": {
+    "xtal-test": "0.0.50"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
