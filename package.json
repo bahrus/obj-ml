@@ -1,6 +1,6 @@
 {
   "name": "obj-ml",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "keywords": [
     "Web Components",
     "Custom Elements",
@@ -14,7 +14,7 @@
     "package-check": "package-check",
     "serve": "node node_modules/xtal-test/serve.js"
   },
-  "exports":{
+  "exports": {
     ".": "./obj-ml.js",
     "./obj-ml.js": "./obj-ml.js"
   },
