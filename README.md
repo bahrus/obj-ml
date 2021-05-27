@@ -92,3 +92,15 @@ Given the fact that (to quote a colleague) "everything that will ever be discove
 I don't even want to look, it's too depressing.
 
 Anyway, obj-ml is inspired by the native DOM "datalist" element.
+
+## Viewing Your Element Locally
+
+1.  Install node.
+2.  Clone or for fork this git repo.
+3.  In a command prompt from the folder of this git repo:
+
+```
+$ npm run serve
+```
+
+4.  Open browser to http://localhost/demo.
