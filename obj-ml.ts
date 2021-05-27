@@ -14,7 +14,15 @@ export class ObjML extends HTMLElement {
             const oChild = child as ObjML;
             const name = oChild.getAttribute("name");
             if(name === null) continue;
-            obj[name] = oChild.value;
+            if(obj[name] !== undefined){
+                if(!Array.isArray(obj[name])){
+                    obj[name] = [obj[name]];
+                }
+                obj[name].push(oChild.value);
+            }else{
+                obj[name] = oChild.value;
+            }
+            
         }
         this.value = obj;
     }
@@ -28,8 +36,8 @@ export class ObjML extends HTMLElement {
     set value(nv: any){
         this._value = nv;
         this.dispatchEvent(new CustomEvent('value-changed', {
+            bubbles: true,
             detail:{
-                bubbles: true,
                 value: nv,
                 propLastChanged: this._propLastChanged
             }
@@ -44,10 +52,7 @@ export class ObjML extends HTMLElement {
                     if(!(oChild instanceof ObjML) && !(oChild instanceof HTMLInputElement)) continue;
                     const name = oChild.getAttribute("name");
                     if(name === null) continue;
-                    const obj = this.value || {};
-                    obj[name] = oChild.value;
-                    this._propLastChanged = name;
-                    this.value = obj;
+                    this.setVal(name, oChild);
                 }
                 
             }
@@ -59,6 +64,29 @@ export class ObjML extends HTMLElement {
                 this.value = obj;                
             }
         }
+    }
+    setVal(name: string, oChild: ObjML | HTMLInputElement){
+        if(this.isNameUnique(name, oChild)){
+            const obj = this.value || {};
+            obj[name] = oChild.value;
+            this._propLastChanged = name;
+            this.value = obj;
+            
+        }else{
+            const currVal = this.value === undefined ? undefined : this.value[name];
+            let newVal = [];
+            if(currVal !== undefined){
+                if(!Array.isArray(currVal)){
+                    newVal = [currVal]
+                }else{
+                    newVal = currVal;
+                }
+            } 
+            newVal.push(oChild.value);
+            this.value[name] = newVal;
+        }
+        const wr = new WeakRef(oChild);
+        this._groupedByName[name] = [wr];
     }
     _observer: MutationObserver | undefined;
     _propLastChanged: string | undefined;
@@ -76,7 +104,8 @@ export class ObjML extends HTMLElement {
         if(name === null || target.parentElement !== this) return;
         e.stopPropagation();
         this._propLastChanged = name;
-        this.value[name] = target.value;
+        this.setVal(name, target);
+        //this.value[name] = target.value;
     }
     addEventListeners(){
         this.addEventListener('input', this.handleEvent);
@@ -87,6 +116,17 @@ export class ObjML extends HTMLElement {
         if(this._observer !== undefined){
             this._observer.disconnect();
         }
+    }
+
+    _groupedByName: {[key: string]: WeakRef<Element>[]} = {};
+    isNameUnique(name: string, newElement: Element){
+        const matchingByName = this._groupedByName[name];
+        if(matchingByName === undefined || matchingByName.length === 0) return true;
+        for(const el of matchingByName){
+            const deref = el.deref();
+            if(deref !== undefined && deref !== newElement) return false;
+        }
+        return true;
     }
 }
 
