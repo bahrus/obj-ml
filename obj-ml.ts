@@ -166,3 +166,9 @@ function assignAttr(obj: any, attrib: Attr){
     
 }
 customElements.define('obj-ml', ObjML);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "obj-ml": ObjML,
+    }
+}

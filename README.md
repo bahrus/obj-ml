@@ -1,12 +1,8 @@
 # obj-ml
 
-## Priors
+<a href="https://nodei.co/npm/obj-ml/"><img src="https://nodei.co/npm/obj-ml.png"></a>
 
-Given the fact that (to quote a colleague) "everything that will ever be discovered is already there, buried in github somewhere", I'm sure there are lots of competing versions of this.
-
-I don't even want to look, it's too depressing.
-
-Anyway, obj-ml is inspired by the native DOM "datalist" element.
+<img src="https://badgen.net/bundlephobia/minzip/obj-ml">
 
 ## Syntax
 
@@ -86,3 +82,11 @@ If two or more children have the same name [TODO]:
 ```
 
 The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more heavy handed mutation observing).
+
+## Priors
+
+Given the fact that (to quote a colleague) "everything that will ever be discovered is already there, buried in github somewhere", I'm sure there are lots of competing versions of this.
+
+I don't even want to look, it's too depressing.
+
+Anyway, obj-ml is inspired by the native DOM "datalist" element.
