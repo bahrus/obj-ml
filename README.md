@@ -26,9 +26,9 @@ Results in creating a JavaScript object:
 
 [TODO]  Is there such a thing as a POWO (plain old wasm object)?
 
-Property names are derived by "camelCasing" the name after the type postfix.  -obj postfix means use JSON.parse on the attribute (and arrays are objects).
+Property names are derived by "camelCasing" the name before the type postfix.  -obj postfix means use JSON.parse on the attribute (and arrays are objects).
 
-If the property name is non component, or if it ends with a non-recognized postfix, it is assumed to be a string property, and the entire name is camelCased to turn it into a property.
+If the property name is not a compound name, or if it ends with a non-recognized postfix, it is assumed to be a string property, and the entire name is camelCased to turn it into a property.
 
 If you need a property to end with one of the reserved types, use it twice:
 
