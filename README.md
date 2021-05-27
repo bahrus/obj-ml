@@ -1,5 +1,7 @@
 # obj-ml
 
+obj-ml is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.
+
 <a href="https://nodei.co/npm/obj-ml/"><img src="https://nodei.co/npm/obj-ml.png"></a>
 
 <img src="https://badgen.net/bundlephobia/minzip/obj-ml">

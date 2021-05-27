@@ -6,7 +6,7 @@
     "Custom Elements",
     "JSON"
   ],
-  "description": "",
+  "description": "obj-ml is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.",
   "main": "obj-ml.js",
   "module": "obj-ml.js",
   "scripts": {
