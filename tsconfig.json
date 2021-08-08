@@ -9,7 +9,8 @@
 		"watch": true
 	},
 	"files": [
-		"obj-ml.ts"
+		"obj-ml.ts",
+		"o-m.ts"
 	],
 	"exclude":[
 		"build",

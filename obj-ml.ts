@@ -1,4 +1,10 @@
 import {lispToCamel} from 'trans-render/lib/lispToCamel.js';
+
+/**
+ * Provides a declarative, HTML-based markup language to instantiate, and update, a JavaScript object
+ * @element obj-ml
+ * @tag obj-ml
+ */
 export class ObjML extends HTMLElement {
     connectedCallback(){
         this.doFullMerge();
@@ -28,6 +34,9 @@ export class ObjML extends HTMLElement {
     }
 
     _value: any;
+    /**
+     * The value of the node
+     */
     get value(){
         return this._value;
     }

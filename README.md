@@ -1,6 +1,6 @@
 # obj-ml
 
-obj-ml is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.
+obj-ml (or o-m for short) is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.
 
 <a href="https://nodei.co/npm/obj-ml/"><img src="https://nodei.co/npm/obj-ml.png"></a>
 
@@ -23,6 +23,8 @@ Results in creating a JavaScript object:
 
 
 ... and setting property "value" to that JavaScript object.  Event "value-changed" is fired as the value changes.  The value is passed in the detail, as well as some indication of what part of the object changed, when applicable.
+
+An extending component, o-m, does the same thing as obj-ml, but the syntax will involve less typing, but is more likely to conflict with other web component names.
 
 [TODO]  Is there such a thing as a POWO (plain old wasm object)?
 
@@ -62,10 +64,10 @@ results in outer obj-ml having value:
 If two or more children have the same name:
 
 ```html
-<obj-ml>
-    <obj-ml name='subObj' prop1-str='string property'></obj-ml>
-    <obj-ml name='subObj' prop2-num=42></obj-ml>
-</obj-ml>
+<o-m>
+    <o-m name='subObj' prop1-str='string property'></o-m>
+    <o-m name='subObj' prop2-num=42></o-m>
+</o-m>
 ```
 
 ...we end up with an array:

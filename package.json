@@ -12,14 +12,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "package-check": "package-check",
+    "doc": "custom-elements-manifest analyze",
     "serve": "node node_modules/xtal-test/serve.js"
   },
   "exports": {
     ".": "./obj-ml.js",
-    "./obj-ml.js": "./obj-ml.js"
+    "./obj-ml.js": "./obj-ml.js",
+    "./o-m.js": "./o-m.js"
   },
   "files": [
     "obj-*.*",
+    "o-*.*",
     "types.d.ts"
   ],
   "typings": "types.d.ts",
@@ -28,17 +31,19 @@
     "url": "git+https://github.com/bahrus/obj-ml.git"
   },
   "dependencies": {
-    "trans-render": "0.0.289",
-    "xtal-element": "0.0.400"
+    "trans-render": "0.0.291",
+    "xtal-element": "0.0.420"
   },
   "devDependencies": {
-    "xtal-test": "0.0.50",
-    "@skypack/package-check": "0.2.2"
+    "xtal-test": "0.0.51",
+    "@skypack/package-check": "0.2.2",
+    "@custom-elements-manifest/analyzer": "0.4.17"
   },
   "author": "anderson.bruce.b@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bahrus/obj-ml/issues"
   },
-  "homepage": "https://github.com/bahrus/obj-ml#readme"
+  "homepage": "https://github.com/bahrus/obj-ml#readme",
+  "customElements": "custom-elements.json"
 }

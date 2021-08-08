@@ -1,21 +1,10 @@
 import { lispToCamel } from 'trans-render/lib/lispToCamel.js';
+/**
+ * Provides a declarative, HTML-based markup language to instantiate, and update, a JavaScript object
+ * @element obj-ml
+ * @tag obj-ml
+ */
 export class ObjML extends HTMLElement {
-    constructor() {
-        super(...arguments);
-        this.handleEvent = (e) => {
-            const target = e.target;
-            if (target === null)
-                return;
-            const name = target.getAttribute('name');
-            if (name === null || target.parentElement !== this)
-                return;
-            e.stopPropagation();
-            this._propLastChanged = name;
-            this.setVal(name, target);
-            //this.value[name] = target.value;
-        };
-        this._groupedByName = {};
-    }
     connectedCallback() {
         this.doFullMerge();
         this.addMutationObserver();
@@ -43,6 +32,10 @@ export class ObjML extends HTMLElement {
         }
         this.value = obj;
     }
+    _value;
+    /**
+     * The value of the node
+     */
     get value() {
         return this._value;
     }
@@ -102,12 +95,26 @@ export class ObjML extends HTMLElement {
         const wr = new WeakRef(oChild);
         this._groupedByName[name] = [wr];
     }
+    _observer;
+    _propLastChanged;
     addMutationObserver() {
         const config = { attributes: true, childList: true, subtree: false };
         const callBack = this.onMutation.bind(this);
         this._observer = new MutationObserver(callBack);
         this._observer.observe(this, config);
     }
+    handleEvent = (e) => {
+        const target = e.target;
+        if (target === null)
+            return;
+        const name = target.getAttribute('name');
+        if (name === null || target.parentElement !== this)
+            return;
+        e.stopPropagation();
+        this._propLastChanged = name;
+        this.setVal(name, target);
+        //this.value[name] = target.value;
+    };
     addEventListeners() {
         this.addEventListener('input', this.handleEvent);
         this.addEventListener('value-changed', this.handleEvent);
@@ -117,6 +124,7 @@ export class ObjML extends HTMLElement {
             this._observer.disconnect();
         }
     }
+    _groupedByName = {};
     isNameUnique(name, newElement) {
         const matchingByName = this._groupedByName[name];
         if (matchingByName === undefined || matchingByName.length === 0)

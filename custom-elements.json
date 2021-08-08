@@ -1,0 +1,647 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "o-m.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "OM",
+          "superclass": {
+            "name": "ObjML",
+            "module": "/obj-ml.js"
+          },
+          "tagName": "o-m",
+          "customElement": true,
+          "members": [
+            {
+              "kind": "method",
+              "name": "doFullMerge",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "type": {
+                "text": "any"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "description": "The value of the node",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onMutation",
+              "parameters": [
+                {
+                  "name": "mutationsList",
+                  "type": {
+                    "text": "MutationRecord[]"
+                  }
+                },
+                {
+                  "name": "observer",
+                  "type": {
+                    "text": "MutationObserver"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setVal",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "oChild",
+                  "type": {
+                    "text": "ObjML | HTMLInputElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_observer",
+              "type": {
+                "text": "MutationObserver | undefined"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_propLastChanged",
+              "type": {
+                "text": "string | undefined"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addMutationObserver",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "handleEvent",
+              "default": "(e: Event) => {\r\n        const target = e.target as ObjML | HTMLInputElement;\r\n        if(target=== null) return; \r\n        const name = target.getAttribute('name');\r\n        if(name === null || target.parentElement !== this) return;\r\n        e.stopPropagation();\r\n        this._propLastChanged = name;\r\n        this.setVal(name, target);\r\n        //this.value[name] = target.value;\r\n    }",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addEventListeners",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_groupedByName",
+              "type": {
+                "text": "{[key: string]: WeakRef<Element>[]}"
+              },
+              "default": "{}",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isNameUnique",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "newElement",
+                  "type": {
+                    "text": "Element"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "OM",
+          "declaration": {
+            "name": "OM",
+            "module": "o-m.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "o-m",
+          "declaration": {
+            "name": "OM",
+            "module": "o-m.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "o-m.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "OM",
+          "superclass": {
+            "name": "ObjML",
+            "module": "/obj-ml.js"
+          },
+          "tagName": "o-m",
+          "customElement": true,
+          "members": [
+            {
+              "kind": "method",
+              "name": "doFullMerge",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "type": {
+                "text": "any"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "description": "The value of the node",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onMutation",
+              "parameters": [
+                {
+                  "name": "mutationsList",
+                  "type": {
+                    "text": "MutationRecord[]"
+                  }
+                },
+                {
+                  "name": "observer",
+                  "type": {
+                    "text": "MutationObserver"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setVal",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "oChild",
+                  "type": {
+                    "text": "ObjML | HTMLInputElement"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_observer",
+              "type": {
+                "text": "MutationObserver | undefined"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_propLastChanged",
+              "type": {
+                "text": "string | undefined"
+              },
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addMutationObserver",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "handleEvent",
+              "default": "(e: Event) => {\r\n        const target = e.target as ObjML | HTMLInputElement;\r\n        if(target=== null) return; \r\n        const name = target.getAttribute('name');\r\n        if(name === null || target.parentElement !== this) return;\r\n        e.stopPropagation();\r\n        this._propLastChanged = name;\r\n        this.setVal(name, target);\r\n        //this.value[name] = target.value;\r\n    }",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addEventListeners",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_groupedByName",
+              "type": {
+                "text": "{[key: string]: WeakRef<Element>[]}"
+              },
+              "default": "{}",
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isNameUnique",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "newElement",
+                  "type": {
+                    "text": "Element"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "ObjML",
+                "module": "obj-ml.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "OM",
+          "declaration": {
+            "name": "OM",
+            "module": "o-m.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "o-m",
+          "declaration": {
+            "name": "OM",
+            "module": "o-m.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "obj-ml.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Provides a declarative, HTML-based markup language to instantiate, and update, a JavaScript object",
+          "name": "ObjML",
+          "members": [
+            {
+              "kind": "method",
+              "name": "doFullMerge"
+            },
+            {
+              "kind": "field",
+              "name": "_value"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "description": "The value of the node"
+            },
+            {
+              "kind": "method",
+              "name": "onMutation",
+              "parameters": [
+                {
+                  "name": "mutationsList"
+                },
+                {
+                  "name": "observer"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setVal",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "oChild"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_observer"
+            },
+            {
+              "kind": "field",
+              "name": "_propLastChanged"
+            },
+            {
+              "kind": "method",
+              "name": "addMutationObserver"
+            },
+            {
+              "kind": "field",
+              "name": "handleEvent",
+              "default": "(e) => {\n        const target = e.target;\n        if (target === null)\n            return;\n        const name = target.getAttribute('name');\n        if (name === null || target.parentElement !== this)\n            return;\n        e.stopPropagation();\n        this._propLastChanged = name;\n        this.setVal(name, target);\n        //this.value[name] = target.value;\n    }"
+            },
+            {
+              "kind": "method",
+              "name": "addEventListeners"
+            },
+            {
+              "kind": "field",
+              "name": "_groupedByName",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "isNameUnique",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "newElement"
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "obj-ml",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ObjML",
+          "declaration": {
+            "name": "ObjML",
+            "module": "obj-ml.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "obj-ml",
+          "declaration": {
+            "name": "ObjML",
+            "module": "obj-ml.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "obj-ml.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Provides a declarative, HTML-based markup language to instantiate, and update, a JavaScript object",
+          "name": "ObjML",
+          "members": [
+            {
+              "kind": "method",
+              "name": "doFullMerge"
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "description": "The value of the node"
+            },
+            {
+              "kind": "method",
+              "name": "onMutation",
+              "parameters": [
+                {
+                  "name": "mutationsList",
+                  "type": {
+                    "text": "MutationRecord[]"
+                  }
+                },
+                {
+                  "name": "observer",
+                  "type": {
+                    "text": "MutationObserver"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setVal",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "oChild",
+                  "type": {
+                    "text": "ObjML | HTMLInputElement"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_observer",
+              "type": {
+                "text": "MutationObserver | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_propLastChanged",
+              "type": {
+                "text": "string | undefined"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addMutationObserver"
+            },
+            {
+              "kind": "field",
+              "name": "handleEvent",
+              "default": "(e: Event) => {\r\n        const target = e.target as ObjML | HTMLInputElement;\r\n        if(target=== null) return; \r\n        const name = target.getAttribute('name');\r\n        if(name === null || target.parentElement !== this) return;\r\n        e.stopPropagation();\r\n        this._propLastChanged = name;\r\n        this.setVal(name, target);\r\n        //this.value[name] = target.value;\r\n    }"
+            },
+            {
+              "kind": "method",
+              "name": "addEventListeners"
+            },
+            {
+              "kind": "field",
+              "name": "_groupedByName",
+              "type": {
+                "text": "{[key: string]: WeakRef<Element>[]}"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "isNameUnique",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "newElement",
+                  "type": {
+                    "text": "Element"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "obj-ml",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ObjML",
+          "declaration": {
+            "name": "ObjML",
+            "module": "obj-ml.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "obj-ml",
+          "declaration": {
+            "name": "ObjML",
+            "module": "obj-ml.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "types.d.ts",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}
