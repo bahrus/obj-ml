@@ -1,10 +1,16 @@
-# obj-ml
+# obj-ml (WIP)
 
 obj-ml (or o-m for short) is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.
 
 <a href="https://nodei.co/npm/obj-ml/"><img src="https://nodei.co/npm/obj-ml.png"></a>
 
 <img src="https://badgen.net/bundlephobia/minzip/obj-ml">
+
+Use cases:  
+
+1.  Provide a way to represent structured data that needs to be submitted with a post request, within a form element (or specifying a form target element.)
+2.  Provides a place to pass data from, say, a form, which can then broadcast to other elements on the page via event subscription.
+3.  Data can stream in as the HTML streams in.
 
 ## Syntax
 
