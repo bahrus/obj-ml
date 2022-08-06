@@ -21,9 +21,7 @@
     "./o-m.js": "./o-m.js"
   },
   "files": [
-    "obj-*.*",
-    "o-*.*",
-    "types.d.ts"
+    "*.*"
   ],
   "typings": "types.d.ts",
   "repository": {
@@ -31,13 +29,13 @@
     "url": "git+https://github.com/bahrus/obj-ml.git"
   },
   "dependencies": {
-    "trans-render": "0.0.291",
-    "xtal-element": "0.0.420"
+    "trans-render": "0.0.553",
+    "xtal-element": "0.0.496"
   },
   "devDependencies": {
-    "xtal-test": "0.0.51",
+    "may-it-serve": "0.0.2",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.4.17"
+    "@custom-elements-manifest/analyzer": "0.6.4"
   },
   "author": "anderson.bruce.b@gmail.com",
   "license": "MIT",
