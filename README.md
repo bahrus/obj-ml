@@ -95,9 +95,9 @@ The advantage of nesting like this, as opposed to using the flat attribute/JSON 
 
 ## Priors
 
-Given the fact that (to quote a colleague) "everything that will ever be discovered is already there, buried in github somewhere", I'm sure there are lots of competing versions of this.
+1.  datalist
+2.  Silverlight [XmlDataProvider](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-bind-to-xml-data-using-an-xmldataprovider-and-xpath-queries?view=netframeworkdesktop-4.8)
 
-I don't even want to look, it's too depressing.
 
 Anyway, obj-ml is inspired by the native DOM "datalist" element.
 
