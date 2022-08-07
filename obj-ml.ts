@@ -157,21 +157,30 @@ function assignAttr(obj: any, attrib: Attr){
     }
     const val = attrib.value;
     switch(type){
+        case 's':
         case 'str':
             obj[propName] = val;
             break;
+        case 'b':
         case 'bool':
             obj[propName] = val === 'true';
             break;
+        case 'i':
         case 'int':
             obj[propName] = parseInt(val);
             break;
+        case 'n':
+        case 'num':
+            obj[propName] = Number(val);
+        case 'o':
         case 'obj':
             obj[propName] = JSON.parse(val);
             break;
+        case 'd':
         case 'date':
             obj[propName] = new Date(Date.parse(val));
             break;
+        case 'f':
         case 'float':
             obj[propName] = parseFloat(val);
             break;

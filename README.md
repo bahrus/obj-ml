@@ -32,6 +32,8 @@ Results in creating a JavaScript object:
 
 An extending component, o-m, does the same thing as obj-ml, but the syntax will involve less typing, but is more likely to conflict with other web component names.
 
+Also, for both obj-ml, the type post fix can be just the first letter, e.g. prop3-i, prop4-d, etc.
+
 [TODO]  Is there such a thing as a POWO (plain old wasm object)?
 
 Property names are derived by "camelCasing" the name before the type postfix.  -obj postfix means use JSON.parse on the attribute (and arrays are objects).
