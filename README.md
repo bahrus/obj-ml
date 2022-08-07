@@ -93,6 +93,23 @@ If two or more children have the same name:
 
 The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more heavy handed mutation observing).
 
+## Form participation
+
+obj-ml/o-l can partake in forms, becoming part of oForm.elements, formdata, etc.
+
+It might make most sense to include outside the form, but integrate with the form via the form attribute:
+
+```html
+    <o-m form='form1' name='om' prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
+        <o-m itemprop='subObj' prop1-str='string property'></o-m>
+        <input itemprop='myEditableProp'>
+    </o-m>
+
+    <form id='form1'>
+
+    </form>
+```
+
 ## Priors
 
 1.  datalist
