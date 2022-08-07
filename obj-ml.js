@@ -51,6 +51,7 @@ export class ObjML extends HTMLElement {
                 propLastChanged: this._propLastChanged
             }
         }));
+        //https://github.com/microsoft/fast/blob/master/packages/web-components/fast-foundation/src/form-associated/form-associated-custom-element.spec.md
         this.#internals.setFormValue(nv);
     }
     onMutation(mutationsList, observer) {

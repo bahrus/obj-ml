@@ -17,6 +17,10 @@
 
     <form id='form1'>
     </form>
+
+    <button onclick='outputFormData()'>Output form data</button>
+
+    <div id='output'></div>
     <script type=importmap>
         {
             "imports": {
@@ -25,5 +29,16 @@
         }
     </script>
     <script type=module src=../o-m.js></script>
+
+    <script>
+        function outputFormData(){
+            const formData = new FormData(form1);
+
+
+            for (const [key, value] of formData) {
+                output.textContent += `${key}: ${value}\n`;
+            }
+        }
+    </script>
 </body>
 </html>
