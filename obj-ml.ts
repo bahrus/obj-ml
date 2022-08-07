@@ -56,7 +56,7 @@ export class ObjML extends HTMLElement {
             }
         }));
         //https://github.com/microsoft/fast/blob/master/packages/web-components/fast-foundation/src/form-associated/form-associated-custom-element.spec.md
-        this.#internals!.setFormValue(nv);
+        this.#internals!.setFormValue(JSON.stringify(nv));
     }
 
     onMutation(mutationsList: MutationRecord[], observer: MutationObserver){

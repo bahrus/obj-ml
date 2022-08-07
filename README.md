@@ -102,8 +102,8 @@ obj-ml/o-l can partake in forms, becoming part of oForm.elements, formdata, etc.
 It might make most sense to include outside the form, but integrate with the form via the form attribute:
 
 ```html
-    <o-m form='form1' name='om' prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
-        <o-m itemprop='subObj' prop1-str='string property'></o-m>
+    <o-m form='form1' name='om' prop1='string property' prop2-b=true prop3-i=5 prop4-f=2.7 prop5-d="May 24, 2021" prop6-o='{"mySubSubObj":"hello"}'>
+        <o-m itemprop='subObj' prop1='string property'></o-m>
         <input itemprop='myEditableProp'>
     </o-m>
 
