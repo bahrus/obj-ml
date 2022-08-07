@@ -52,7 +52,7 @@ obj-ml watches for all attribute changes, and if one changes, it updates the "va
 
 ```html
 <obj-ml>
-    <obj-ml itemprop='subObj' prop1-str='string property'></obj-ml>
+    <obj-ml itemprop='subObj' prop1='string property'></obj-ml>
     <input itemprop='myEditableProp'>
 </obj-ml>
 ```
@@ -71,7 +71,7 @@ If two or more children have the same name:
 
 ```html
 <o-m>
-    <o-m itemprop='subObj' prop1-str='string property'></o-m>
+    <o-m itemprop='subObj' prop1='string property'></o-m>
     <o-m itemprop='subObj' prop2-num=42></o-m>
 </o-m>
 ```
@@ -100,6 +100,8 @@ The advantage of nesting like this, as opposed to using the flat attribute/JSON 
 
 
 Anyway, obj-ml is inspired by the native DOM "datalist" element.
+
+[TODO]  Use itemref to reference another om element to incorporate repeating data.
 
 ## Viewing Your Element Locally
 
