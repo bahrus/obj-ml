@@ -52,8 +52,8 @@ obj-ml watches for all attribute changes, and if one changes, it updates the "va
 
 ```html
 <obj-ml>
-    <obj-ml name='subObj' prop1-str='string property'></obj-ml>
-    <input name='myEditableProp'>
+    <obj-ml itemprop='subObj' prop1-str='string property'></obj-ml>
+    <input itemprop='myEditableProp'>
 </obj-ml>
 ```
 
@@ -71,8 +71,8 @@ If two or more children have the same name:
 
 ```html
 <o-m>
-    <o-m name='subObj' prop1-str='string property'></o-m>
-    <o-m name='subObj' prop2-num=42></o-m>
+    <o-m itemprop='subObj' prop1-str='string property'></o-m>
+    <o-m itemprop='subObj' prop2-num=42></o-m>
 </o-m>
 ```
 

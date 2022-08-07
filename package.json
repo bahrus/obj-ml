@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "package-check": "package-check",
     "doc": "custom-elements-manifest analyze",
-    "serve": "node node_modules/xtal-test/serve.js"
+    "serve": "node node_modules/may-it-serve/serve.js"
   },
   "exports": {
     ".": "./obj-ml.js",

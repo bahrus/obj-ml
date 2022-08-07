@@ -21,15 +21,15 @@ export class ObjML extends HTMLElement {
         }
         for(const child of this.children){
             const oChild = child as ObjML;
-            const name = oChild.getAttribute("name");
-            if(name === null) continue;
-            if(obj[name] !== undefined){
-                if(!Array.isArray(obj[name])){
-                    obj[name] = [obj[name]];
+            const itemprop = oChild.getAttribute("itemprop");
+            if(itemprop === null) continue;
+            if(obj[itemprop] !== undefined){
+                if(!Array.isArray(obj[itemprop])){
+                    obj[itemprop] = [obj[itemprop]];
                 }
-                obj[name].push(oChild.value);
+                obj[itemprop].push(oChild.value);
             }else{
-                obj[name] = oChild.value;
+                obj[itemprop] = oChild.value;
             }
             
         }

@@ -7,10 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <obj-ml prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
-        <obj-ml itemprop='subObj' prop1-str='string property'></obj-ml>
-        <input itemprop='myEditableProp'>
-    </obj-ml>
+    
+    <form>
+        <o-m name='om' prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
+            <o-m itemprop='subObj' prop1-str='string property'></o-m>
+            <input itemprop='myEditableProp'>
+        </o-m>
+    </form>
     <script type=importmap>
         {
             "imports": {
@@ -18,6 +21,6 @@
             }
         }
     </script>
-    <script type=module src=../obj-ml.js></script>
+    <script type=module src=../o-m.js></script>
 </body>
 </html>
