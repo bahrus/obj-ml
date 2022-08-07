@@ -64,14 +64,15 @@ export class ObjML extends HTMLElement {
                 const addedNodes = mutation.addedNodes;
                 for(const oChild of addedNodes){
                     if(!(oChild instanceof ObjML) && !(oChild instanceof HTMLInputElement)) continue;
-                    const name = oChild.getAttribute("name");
-                    if(name === null) continue;
-                    this.setVal(name, oChild);
+                    const itemprop = oChild.getAttribute("itemprop");
+                    if(itemprop === null) continue;
+                    this.setVal(itemprop, oChild);
                 }
                 
             }
             else if (mutation.type === 'attributes') {
                 const name = mutation.attributeName!;
+                if(name === 'form') continue;
                 const obj = this.value || {};
                 assignAttr(obj, this.getAttributeNode(name)!); //TODO:  remove attribute?
                 this._propLastChanged = name;
@@ -114,12 +115,11 @@ export class ObjML extends HTMLElement {
     handleEvent = (e: Event) => {
         const target = e.target as ObjML | HTMLInputElement;
         if(target=== null) return; 
-        const name = target.getAttribute('name');
-        if(name === null || target.parentElement !== this) return;
+        const itemprop = target.getAttribute('itemprop');
+        if(itemprop === null || target.parentElement !== this) return;
         e.stopPropagation();
-        this._propLastChanged = name;
-        this.setVal(name, target);
-        //this.value[name] = target.value;
+        this._propLastChanged = itemprop;
+        this.setVal(itemprop, target);
     }
     addEventListeners(){
         this.addEventListener('input', this.handleEvent);
@@ -146,6 +146,7 @@ export class ObjML extends HTMLElement {
 
 function assignAttr(obj: any, attrib: Attr){
     const name = attrib.name;
+    if( name === 'form' || name=== 'itemprop') return;
     const posOfFirstDash = name.lastIndexOf('-');
     let type = 'str';
     let propName = name;
