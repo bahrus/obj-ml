@@ -8,10 +8,10 @@ export class ObjML extends HTMLElement {
     #internals;
     static formAssociated = true;
     connectedCallback() {
+        this.#internals = this.attachInternals();
         this.doFullMerge();
         this.addMutationObserver();
         this.addEventListeners();
-        this.#internals = this.attachInternals();
     }
     async doFullMerge() {
         const obj = {};
@@ -51,6 +51,7 @@ export class ObjML extends HTMLElement {
                 propLastChanged: this._propLastChanged
             }
         }));
+        this.#internals.setFormValue(nv);
     }
     onMutation(mutationsList, observer) {
         for (const mutation of mutationsList) {
