@@ -32,11 +32,9 @@ Results in creating a JavaScript object:
 
 An extending component, o-m, does the same thing as obj-ml, but the syntax will involve less typing, but is more likely to conflict with other web component names.
 
-Also, for both obj-ml, the type post fix can be just the first letter, e.g. prop3-i, prop4-d, etc.
+Also, for both obj-ml and o-m, the part of the attribute that specifies the type of the data can be abbreviated by the first letter, e.g. prop3-i, prop4-d, etc.
 
-[TODO]  Is there such a thing as a POWO (plain old wasm object)?
-
-Property names are derived by "camelCasing" the name before the type postfix.  -obj postfix means use JSON.parse on the attribute (and arrays are objects).
+Property names are derived by "camelCasing" the attribute name before the type postfix.  -obj or -o postfix means use JSON.parse on the attribute (and arrays are objects).
 
 If the property name is not a compound name, or if it ends with a non-recognized postfix, it is assumed to be a string property, and the entire name is camelCased to turn it into a property.
 
@@ -114,11 +112,12 @@ It might make most sense to include outside the form, but integrate with the for
 
 ## Priors
 
+A very likely non-exhaustive list:
+
 1.  datalist
 2.  Silverlight [XmlDataProvider](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-bind-to-xml-data-using-an-xmldataprovider-and-xpath-queries?view=netframeworkdesktop-4.8)
 
 
-Anyway, obj-ml is inspired by the native DOM "datalist" element.
 
 [TODO]  Use itemref to reference another om element to incorporate repeating data.
 
