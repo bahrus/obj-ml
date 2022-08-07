@@ -6,14 +6,13 @@ import {lispToCamel} from 'trans-render/lib/lispToCamel.js';
  * @tag obj-ml
  */
 export class ObjML extends HTMLElement {
-
-    static get formAssociated(){
-        return true;
-    }
+    #internals: ElementInternals | undefined; 
+    static formAssociated = true;
     connectedCallback(){
         this.doFullMerge();
         this.addMutationObserver();
         this.addEventListeners();
+        this.#internals = this.attachInternals();
     }
     async doFullMerge(){
         const obj: any = {};
