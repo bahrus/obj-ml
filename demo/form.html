@@ -7,12 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+  
     
-    <form>
-        <o-m name='om' prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
-            <o-m itemprop='subObj' prop1-str='string property'></o-m>
-            <input itemprop='myEditableProp'>
-        </o-m>
+    <o-m form='form1' name='om' prop1='string property' prop2-bool=true prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'>
+        <o-m itemprop='subObj' prop1-str='string property'></o-m>
+        <input itemprop='myEditableProp'>
+    </o-m>
+
+    <form id='form1'>
+
     </form>
     <script type=importmap>
         {
