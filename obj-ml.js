@@ -5,6 +5,9 @@ import { lispToCamel } from 'trans-render/lib/lispToCamel.js';
  * @tag obj-ml
  */
 export class ObjML extends HTMLElement {
+    static get formAssociated() {
+        return true;
+    }
     connectedCallback() {
         this.doFullMerge();
         this.addMutationObserver();
