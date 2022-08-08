@@ -96,7 +96,9 @@ If two or more children have the same name:
 }
 ```
 
-The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more heavy handed mutation observing).
+The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more more event listening).
+
+
 
 ## Form participation
 
