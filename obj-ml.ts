@@ -17,7 +17,7 @@ export class ObjML extends HTMLElement {
         // }else if(this.hasAttribute('be-v') || this.hasAttribute('be-vigilant')){
         //     this.addMutationObserver();
         // }
-        
+        this.addMutationObserver();
         this.addEventListeners();
        
     }
@@ -69,28 +69,28 @@ export class ObjML extends HTMLElement {
         
     }
 
-    // onMutation(mutationsList: MutationRecord[], observer: MutationObserver){
-    //     for(const mutation of mutationsList) {
-    //         if (mutation.type === 'childList') {
-    //             const addedNodes = mutation.addedNodes;
-    //             for(const oChild of addedNodes){
-    //                 if(!(oChild instanceof ObjML) && !(oChild instanceof HTMLInputElement)) continue;
-    //                 const itemprop = oChild.getAttribute("itemprop");
-    //                 if(itemprop === null) continue;
-    //                 this.setVal(itemprop, oChild);
-    //             }
+    onMutation(mutationsList: MutationRecord[], observer: MutationObserver){
+        for(const mutation of mutationsList) {
+            // if (mutation.type === 'childList') {
+            //     const addedNodes = mutation.addedNodes;
+            //     for(const oChild of addedNodes){
+            //         if(!(oChild instanceof ObjML) && !(oChild instanceof HTMLInputElement)) continue;
+            //         const itemprop = oChild.getAttribute("itemprop");
+            //         if(itemprop === null) continue;
+            //         this.setVal(itemprop, oChild);
+            //     }
                 
-    //         }
-    //         else if (mutation.type === 'attributes') {
-    //             const name = mutation.attributeName!;
-    //             if(name === 'form') continue;
-    //             const obj = this.value || {};
-    //             assignAttr(obj, this.getAttributeNode(name)!); //TODO:  remove attribute?
-    //             this._propLastChanged = name;
-    //             this.value = obj;                
-    //         }
-    //     }
-    // }
+            // }
+            if (mutation.type === 'attributes') {
+                const name = mutation.attributeName!;
+                if(name === 'form') continue;
+                const obj = this.value || {};
+                assignAttr(obj, this.getAttributeNode(name)!); //TODO:  remove attribute?
+                this._propLastChanged = name;
+                this.value = obj;                
+            }
+        }
+    }
     setVal(name: string, oChild: ObjML | HTMLInputElement){
         if(this.isNameUnique(name, oChild)){
             const obj = this.value || {};
@@ -116,12 +116,13 @@ export class ObjML extends HTMLElement {
     }
     _observer: MutationObserver | undefined;
     _propLastChanged: string | undefined;
-    // addMutationObserver(){
-    //     const config = { attributes: true, childList: true, subtree: false };
-    //     const callBack = this.onMutation.bind(this);
-    //     this._observer = new MutationObserver(callBack);
-    //     this._observer.observe(this, config);
-    // }
+    addMutationObserver(){
+        //const config = { attributes: true, childList: true, subtree: false };
+        const config = {attributes: true};
+        const callBack = this.onMutation.bind(this);
+        this._observer = new MutationObserver(callBack);
+        this._observer.observe(this, config);
+    }
 
     handleEvent = (e: Event) => {
         const target = e.target as ObjML | HTMLInputElement;
