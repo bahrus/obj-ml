@@ -10,6 +10,7 @@ Use cases:
 
 1.  Provide a way to represent structured data that needs to be submitted with a post request, within a form element (or specifying a form target element.)
 2.  Provides a place to pass data from, say, a form, which can then broadcast to other elements on the page via event subscription.
+3.  Provides considerably more data types than JSON.
 3.  Data can stream in as the HTML streams in.
 4.  Querying the data with css/xpath now possible for free.
 5.  XSLT can be used to generate the view off it.
@@ -24,8 +25,10 @@ Results in creating a JavaScript object:
 
 ```JSON
 {
-    "prop1": "string property"
-    ...
+    "prop1": "string property",
+    "prop2": true,
+    "prop3": 5,
+    ... 
 }
 ```
 
