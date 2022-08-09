@@ -72,31 +72,23 @@ results in outer obj-ml having value:
 }
 ```
 
-If two or more children have the same name:
+## Arrays [TODO]
 
 ```html
-<o-m>
-    <o-m itemprop='subObj' prop1='string property'></o-m>
-    <o-m itemprop='subObj' prop2-num=42></o-m>
+<o-m my-list-arr>
+    <o-m itemprop=myList prop1='string property'>
+    <o-m itemprop=myList prop2-num=42>
 </o-m>
 ```
 
-...we end up with an array:
+The mere presence of the my-list-arr attribute starts an empty array, which will be filled if it happens to encounter any tags with itemprop=myList
 
-```JSON
-{
-    "subObj": [
-        {
-            "prop1": "string property"
-        },
-        {
-            "prop2": 42
-        }
-    ]
-}
-```
 
-The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  The disadvantage may be that more memory is used (and more more event listening).
+The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  
+
+In addition, css / xpath queries can be done to filter the list.
+
+The disadvantage may be that more memory is used (and more more event listening).
 
 
 
