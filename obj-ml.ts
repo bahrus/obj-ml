@@ -30,10 +30,7 @@ export class ObjML extends HTMLElement {
             const oChild = child as ObjML;
             const itemprop = oChild.getAttribute("itemprop");
             if(itemprop === null) continue;
-            if(obj[itemprop] !== undefined){
-                if(!Array.isArray(obj[itemprop])){
-                    obj[itemprop] = [obj[itemprop]];
-                }
+            if(obj[itemprop] !== undefined && Array.isArray(obj[itemprop])){
                 obj[itemprop].push(oChild.value);
             }else{
                 obj[itemprop] = oChild.value;
@@ -183,6 +180,13 @@ function assignAttr(obj: any, attrib: Attr){
         case 'n':
         case 'num':
             obj[propName] = Number(val);
+            break;
+        case 'a':
+        case 'arr':
+            if(!Array.isArray(obj[propName])){
+                obj[propName] = [];
+            }
+            break;
         case 'o':
         case 'obj':
             obj[propName] = JSON.parse(val);

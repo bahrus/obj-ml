@@ -72,7 +72,7 @@ results in outer obj-ml having value:
 }
 ```
 
-## Arrays [TODO]
+## Arrays
 
 ```html
 <o-m my-list-arr>
