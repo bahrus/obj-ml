@@ -14,6 +14,7 @@ Use cases:
 3.  Data can stream in as the HTML streams in.
 4.  Querying the data with css/xpath now possible for free.
 5.  XSLT can be used to generate the view off it.
+6.  Can you use XSLT to "reverse engineer" server rendered HTML to obj-ml, essentially extracting the data out of the HTML sent to the browser.
 
 ## Syntax
 
@@ -88,7 +89,7 @@ The advantage of nesting like this, as opposed to using the flat attribute/JSON 
 
 In addition, css / xpath queries can be done to filter the list.
 
-The disadvantage may be that more memory is used (and more more event listening).
+The disadvantage may be that more memory is used (and more event listening).
 
 
 
