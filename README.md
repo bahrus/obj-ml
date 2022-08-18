@@ -132,3 +132,5 @@ $ npm run serve
 ```
 
 4.  Open browser to http://localhost/demo.
+
+https://www.measurethat.net/Benchmarks/Show/14562/0/number-vs-parseint
