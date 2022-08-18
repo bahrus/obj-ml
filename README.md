@@ -1,6 +1,6 @@
 # obj-ml (WIP)
 
-obj-ml (or o-m for short) is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a JavaScript object.
+obj-ml (or o-m for short) is a web component that enables a declarative, HTML-based markup language to instantiate, and update, a lazy-loaded JavaScript object.
 
 <a href="https://nodei.co/npm/obj-ml/"><img src="https://nodei.co/npm/obj-ml.png"></a>
 

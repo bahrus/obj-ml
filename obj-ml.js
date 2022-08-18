@@ -9,17 +9,11 @@ export class ObjML extends HTMLElement {
     static formAssociated = true;
     connectedCallback() {
         this.#internals = this.attachInternals();
-        this.doFullMerge();
-        // if(!this.hasAttribute('be-v') && !this.hasAttribute('be-vigilant')){
-        //     this.setAttribute('be-v', '');
-        //     this.addMutationObserver();
-        // }else if(this.hasAttribute('be-v') || this.hasAttribute('be-vigilant')){
-        //     this.addMutationObserver();
-        // }
-        this.addMutationObserver();
-        this.addEventListeners();
+        //this.doFullMerge();
+        //this.addMutationObserver();
+        //this.addEventListeners();
     }
-    async doFullMerge() {
+    doFullMerge() {
         const obj = {};
         for (const attrib of this.attributes) {
             assignAttr(obj, attrib);
@@ -36,13 +30,20 @@ export class ObjML extends HTMLElement {
                 obj[itemprop] = oChild.value;
             }
         }
-        this.value = obj;
+        this._value = obj;
+        if (this._observer === undefined) {
+            this.addMutationObserver();
+            this.addEventListeners();
+        }
     }
     _value;
     /**
      * The value of the node
      */
     get value() {
+        if (this._value === undefined) {
+            this.doFullMerge();
+        }
         return this._value;
     }
     set value(nv) {
