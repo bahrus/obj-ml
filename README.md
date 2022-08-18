@@ -134,3 +134,5 @@ $ npm run serve
 4.  Open browser to http://localhost/demo.
 
 https://www.measurethat.net/Benchmarks/Show/14562/0/number-vs-parseint
+
+https://stackoverflow.com/questions/55364947/is-there-any-javascript-standard-api-to-parse-to-number-according-to-locale
