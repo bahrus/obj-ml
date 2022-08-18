@@ -171,7 +171,7 @@ function assignAttr(obj: any, attrib: Attr){
             break;
         case 'b':
         case 'bool':
-            obj[propName] = val === 'true';
+            obj[propName] = val !== 'false';
             break;
         case 'i':
         case 'int':
