@@ -136,3 +136,5 @@ $ npm run serve
 https://www.measurethat.net/Benchmarks/Show/14562/0/number-vs-parseint
 
 https://stackoverflow.com/questions/55364947/is-there-any-javascript-standard-api-to-parse-to-number-according-to-locale
+
+maybe return proxy for subobjects?
