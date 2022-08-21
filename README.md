@@ -19,7 +19,7 @@ Use cases:
 ## Syntax
 
 ```html
-<obj-ml prop1='string property' prop2-bool prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}'></obj-ml>
+<obj-ml prop1='string property' prop2-bool prop3-int=5 prop4-float=2.7 prop5-date="May 24, 2021" prop6-obj='{"mySubSubObj":"hello"}' prop7-num=1,234,567></obj-ml>
 ```
 
 Results in creating a JavaScript object:

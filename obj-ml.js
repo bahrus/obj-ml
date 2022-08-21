@@ -13,7 +13,7 @@ export class ObjML extends HTMLElement {
         //this.addMutationObserver();
         //this.addEventListeners();
     }
-    doFullMerge() {
+    async doFullMerge() {
         const obj = {};
         for (const attrib of this.attributes) {
             assignAttr(obj, attrib);
@@ -176,7 +176,11 @@ function assignAttr(obj, attrib) {
             break;
         case 'n':
         case 'num':
-            obj[propName] = Number(val);
+            let num = Number(val);
+            if (isNaN(num)) {
+                num = np.parse(val);
+            }
+            obj[propName] = num;
             break;
         case 'a':
         case 'arr':
@@ -202,3 +206,30 @@ function assignAttr(obj, attrib) {
     }
 }
 customElements.define('obj-ml', ObjML);
+//https://stackoverflow.com/questions/55364947/is-there-any-javascript-standard-api-to-parse-to-number-according-to-locale
+class NumberParser {
+    #group;
+    #decimal;
+    #numeral;
+    #index;
+    constructor(locale) {
+        const format = new Intl.NumberFormat(locale);
+        const parts = format.formatToParts(12345.6);
+        const numerals = Array.from({ length: 10 }).map((_, i) => format.format(i));
+        const index = new Map(numerals.map((d, i) => [d, i]));
+        this.#group = new RegExp(`[${parts.find(d => d.type === "group").value}]`, "g");
+        this.#decimal = new RegExp(`[${parts.find(d => d.type === "decimal").value}]`);
+        this.#numeral = new RegExp(`[${numerals.join("")}]`, "g");
+        this.#index = d => index.get(d);
+    }
+    parse(string) {
+        return (string = string.trim()
+            .replace(this.#group, "")
+            .replace(this.#decimal, ".")
+            .replace(this.#numeral, this.#index)) ? +string : NaN;
+    }
+}
+const userLocale = navigator.languages && navigator.languages.length
+    ? navigator.languages[0]
+    : navigator.language;
+const np = new NumberParser(userLocale);
