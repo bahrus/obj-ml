@@ -29,11 +29,11 @@
     "url": "git+https://github.com/bahrus/obj-ml.git"
   },
   "dependencies": {
-    "trans-render": "0.0.553",
-    "xtal-element": "0.0.496"
+    "trans-render": "0.0.668",
+    "xtal-element": "0.0.554"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.2",
+    "may-it-serve": "0.0.4",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },
