@@ -18,7 +18,8 @@
   "exports": {
     ".": "./obj-ml.js",
     "./obj-ml.js": "./obj-ml.js",
-    "./o-m.js": "./o-m.js"
+    "./o-m.js": "./o-m.js",
+    "./li-ml.js": "./li-ml.js"
   },
   "files": [
     "*.*"
@@ -33,7 +34,7 @@
     "xtal-element": "0.0.554"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.4",
+    "may-it-serve": "0.0.5",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },

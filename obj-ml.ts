@@ -186,12 +186,12 @@ function assignAttr(obj: any, attrib: Attr){
             }
             obj[propName] = num;
             break;
-        case 'a':
-        case 'arr':
-            if(!Array.isArray(obj[propName])){
-                obj[propName] = [];
-            }
-            break;
+        // case 'l':
+        // case 'list':
+        //     if(!Array.isArray(obj[propName])){
+        //         obj[propName] = [];
+        //     }
+        //     break;
         case 'o':
         case 'obj':
             obj[propName] = JSON.parse(val);

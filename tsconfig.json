@@ -9,6 +9,7 @@
 		"watch": true
 	},
 	"files": [
+		"li-ml.ts",
 		"obj-ml.ts",
 		"o-m.ts"
 	],
