@@ -10,6 +10,7 @@ export class ObjML extends HTMLElement {
     static formAssociated = true;
     connectedCallback(){
         this.#internals = this.attachInternals();
+        import('./li-ml.js');
         //this.doFullMerge();
         //this.addMutationObserver();
         //this.addEventListeners();
