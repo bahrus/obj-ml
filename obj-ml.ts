@@ -10,7 +10,7 @@ export class ObjML extends HTMLElement {
     static formAssociated = true;
     connectedCallback(){
         this.#internals = this.attachInternals();
-        import('./li-ml.js');
+        //import('./li-ml.js');
         //this.doFullMerge();
         //this.addMutationObserver();
         //this.addEventListeners();
@@ -25,12 +25,14 @@ export class ObjML extends HTMLElement {
             const oChild = child as ObjML;
             const itemprop = oChild.getAttribute("itemprop");
             if(itemprop === null) continue;
-            if(obj[itemprop] !== undefined && Array.isArray(obj[itemprop])){
+            if(oChild instanceof LIML){
+                if(obj[itemprop] === undefined){
+                    obj[itemprop] = [];
+                }
                 obj[itemprop].push(oChild.value);
             }else{
                 obj[itemprop] = oChild.value;
             }
-            
         }
         this._value = obj;
         if(this._observer === undefined){
@@ -154,6 +156,14 @@ export class ObjML extends HTMLElement {
         return true;
     }
 }
+
+/**
+ * @element li-ml
+ * @tag li-ml
+ */
+export class LIML extends ObjML{}
+
+customElements.define('li-ml', LIML);
 
 function assignAttr(obj: any, attrib: Attr){
     const name = attrib.name;

@@ -76,13 +76,11 @@ results in outer obj-ml having value:
 ## Arrays
 
 ```html
-<o-m my-list-arr>
-    <o-m itemprop=myList prop1='string property'>
-    <o-m itemprop=myList prop2-num=42>
-</o-m>
+<obj-ml my-list-arr>
+    <li-ml itemprop=myList prop1='string property'></li-ml>
+    <li-ml itemprop=myList prop2-num=42></li-ml>
+</obj-ml>
 ```
-
-The mere presence of the my-list-arr attribute starts an empty array, which will be filled if it happens to encounter any tags with itemprop=myList
 
 
 The advantage of nesting like this, as opposed to using the flat attribute/JSON parse, is changes to the object can be more thoroughly described in the event that is passed.  
@@ -90,7 +88,6 @@ The advantage of nesting like this, as opposed to using the flat attribute/JSON 
 In addition, css / xpath queries can be done to filter the list.
 
 The disadvantage may be that more memory is used (and more event listening).
-
 
 
 ## Form participation
