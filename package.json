@@ -30,8 +30,7 @@
     "url": "git+https://github.com/bahrus/obj-ml.git"
   },
   "dependencies": {
-    "trans-render": "0.0.669",
-    "xtal-element": "0.0.554"
+    "trans-render": "0.0.670"
   },
   "devDependencies": {
     "may-it-serve": "0.0.5",
